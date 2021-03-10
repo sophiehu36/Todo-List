@@ -22,9 +22,11 @@ body {
 }
 .fa-trash-o, .fa-check-square-o {
     color: #8d9196;
+    cursor: pointer;
 }
 .fa-trash-o:hover {
     color:#e8306f;
+    cursor: pointer;
 }
 .fa-check-square-o:hover {
     color: greenyellow;
@@ -48,6 +50,7 @@ ul#todo-page {
     margin-left: 20px;
     font-size: 8px;
     color:#8d9196;
+    cursor: pointer;
 }
 #todo-info {
     margin-bottom: 10px;
@@ -60,12 +63,14 @@ ul#todo-page {
     background-color: #61dbfb;
     border-radius: 2px;
     color:white;
+    cursor: pointer;
 }
 #todo-input {
     display: inline-block;
     font-size: 3px;
     padding: 2px;
     width: 200px;
+    cursor: text;
 }
 #todo-content {
     margin-top: 25px;
@@ -78,6 +83,7 @@ div.todo-item:first-child {
     border: 1px solid #8d9196;
     border-left: 0;
     border-right: 0;
+
 }
 .todo-item > p {
     display: inline-block;
