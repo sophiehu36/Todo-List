@@ -1,0 +1,90 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #61dbfb;
+    display: flex;
+    align-items: center; /*定义body的元素垂直居中*/
+    
+}
+#todo-container {
+    position: relative;
+    background-color: #393f49;
+    width: 600px;
+    height: 350px;
+    margin: 0 auto;
+    padding: 25px 35px;
+    border-radius: 4px;
+    box-shadow:6px 6px 10px #393f4980;
+}
+.fa-trash-o, .fa-check-square-o {
+    color: #8d9196;
+}
+.fa-trash-o:hover {
+    color:#e8306f;
+}
+.fa-check-square-o:hover {
+    color: greenyellow;
+}
+.fa-trash-o {
+    float: right;
+    transform: translateY(25%);
+}
+#current-time {
+    font-size: 2px;
+    color:white;
+    display: inline-block;
+}
+ul#todo-page {
+    float: right;
+    margin-top: 0;
+}
+#todo-page > li {
+    list-style-type: none;
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 8px;
+    color:#8d9196;
+}
+#todo-info {
+    margin-bottom: 10px;
+}
+#todo-add {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 2px;
+    padding: 3px 5px;
+    background-color: #61dbfb;
+    border-radius: 2px;
+    color:white;
+}
+#todo-input {
+    display: inline-block;
+    font-size: 3px;
+    padding: 2px;
+    width: 200px;
+}
+#todo-content {
+    margin-top: 25px;
+}
+div.todo-item:first-child {
+    border-bottom: 0px;
+}
+.todo-item {
+    padding: 10px 0px;
+    border: 1px solid #8d9196;
+    border-left: 0;
+    border-right: 0;
+}
+.todo-item > p {
+    display: inline-block;
+    font-size: 3px;
+    color: white;
+    margin-left: 10px;
+}
+#todo-page > li.page-chosen {
+    color: white;
+}
