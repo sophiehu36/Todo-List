@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="todo-list.css">
+</head>
+<body>
+    <div id="todo-container">
+        <div id="todo-header">
+            <div id="todo-info">
+                <div id="current-time"></div>
+                <span id="task-active"></span>
+                <ul id="todo-page">
+                    <li class="todo-complete page-chosen">Incomplete Tasks</li>
+                    <li class="todo-complete">Completed Tasks</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <input id="todo-input" type="text" placeholder="Enter a task...">
+            <div id="todo-add">
+                Add Task
+            </div>
+        </div>
+        <div id="todo-content">
+            <div class="todo-item" data-index=0>
+                <i class="fa fa-check-square-o"></i>
+                <p contenteditable="true">Client meeting @ 2:30pm</p>
+                <i class="fa fa-trash-o"></i>
+            </div>
+            <div class="todo-item" data-index=0>
+                <i class="fa fa-check-square-o"></i>
+                <p contenteditable="true">Client meeting @ 4:30pm</p>
+                <i class="fa fa-trash-o"></i>
+            </div>
+        </div>
+
+
+    </div>
+    <script src='hu.js'></script>
+    <script src="todo-list.js"></script>
+</body>
+</html>
