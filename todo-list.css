@@ -75,9 +75,9 @@ ul#todo-page {
 #todo-content {
     margin-top: 25px;
 }
-div.todo-item:first-child {
-    border-bottom: 0px;
-}
+/*div.todo-item:last-child {
+    border-top: 0px;
+}*/
 .todo-item {
     padding: 10px 0px;
     border: 1px solid #8d9196;
