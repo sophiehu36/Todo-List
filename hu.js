@@ -10,8 +10,8 @@ const es = function(selector) {
     return document.querySelectorAll(selector)
 }
 
-const appendHtml = function(element, html) {
-	element.insertAdjacentHTML('beforeend', html)
+const appendHtml = function(element, position, html) {
+	element.insertAdjacentHTML(position, html)
 }
 
 const bindEvent = function(element, eventName, callback) {
@@ -57,7 +57,7 @@ const find = function(element, selector) {
 }
 
 const indexOfElement = function(target, elements) {
-    for(var i = 0; i < elements.length; i++) {
+    for(let i = 0; i < elements.length; i++) {
         if(target == elements[i]) {
             return i
         }
