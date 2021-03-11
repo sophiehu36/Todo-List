@@ -1,13 +1,12 @@
 # Todo-List
 原生JavaScript Todo List
 
-## 已实现界面外观
-
-## 待实现功能
+## 已实现功能
 - 点击**Add Task**获取input的内容添加新的task
+- 点击垃圾桶图标将task删除
+## 待实现功能
 - 添加**completed tasks**页面内容
 - 点击完成图标将task移动到**completed tasks**
-- 点击垃圾桶图标将task删除
 - 点击task内容可以修改并保存
 
 ## 效果图
