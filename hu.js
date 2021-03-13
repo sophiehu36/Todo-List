@@ -43,8 +43,7 @@ const removeClassAll = function(className) {
     }
 }
 
-const bindAll = function(selector, eventName, callback) {
-    var elements = document.querySelectorAll(selector)
+const bindAll = function(elements, eventName, callback) {
     for(var i = 0; i < elements.length; i++) {
         var e = elements[i]
         bindEvent(e, eventName, callback)
