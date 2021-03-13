@@ -62,10 +62,14 @@ const saveTodos = function() {
     const s = JSON.stringify(todoList)
     localStorage.todoList = s
 }
-//读取todoList
+//读取todoList,排除没有todo记录的情况
 const loadTodos = function() {
     const s = localStorage.todoList
-    return JSON.parse(s)
+    if(s !== undefined) {
+        return JSON.parse(s)
+    } else {
+        return []
+    }
 }
 
 //程序加载后把todoList添加到页面中
@@ -82,16 +86,18 @@ const bindEventDeleteTask = function() {
     //1.在父元素上绑定事件
     bindEvent(todoDiv, 'click', function(event) {
         const target = event.target
-        const parent = target.parentElement
-        //2.点击时获取到对应的todoList下标
-        const index = indexOfElement(parent, todoDiv.children)
-        log('index', index)
-        //删除todoList对应下标的这一项
-        todoList.splice(index,1)
-        //删掉对应的div的html
-        parent.remove()
-        //3.保存todoList
-        saveTodos()
+        if (target.classList.contains('fa-trash-o')) {
+            const parent = target.parentElement
+            //2.点击时获取到对应的todoList下标
+            const index = indexOfElement(parent, todoDiv.children)
+            log('index', index)
+            //删除todoList对应下标的这一项
+            todoList.splice(index, 1)
+            //删掉对应的div的html
+            parent.remove()
+            //3.保存todoList
+            saveTodos()
+        }
     })
 }
 
