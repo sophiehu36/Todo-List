@@ -102,22 +102,23 @@ const bindEventDeleteTask = function() {
 }
 //点击task内容可以修改并保存，未完成
 const bindEventEditTask = function () {
-//失去焦点的时候获取内容
-    const todoDiv = e('#todo-content')
-    //1.在父元素上绑定事件
-    bindEvent(todoDiv, 'blur', function (event) {
+    log('bindEventBlur function')
+    //直接把事件绑定在编辑的对象上
+    const todos = es('.todo-task')
+    bindAll(todos, 'blur', function(event) {
+        //失去焦点的时候获取内容
         const target = event.target
-        if (target.classList.contains('todo-task')) {
-            const parent = target.parentElement
-            //2.点击时获取到对应的todoList下标
-            const index = indexOfElement(parent, todoDiv.children)
-            log('index', index)
-            //删除todoList对应下标的这一项
-            todoList.splice(index, 1, target.innerHTML)
-            //3.保存todoList
-            saveTodos()
-        }
-    }, true)
+        //log('container blur', event, target)
+        const parent = target.parentElement
+        const grandparent = parent.parentElement
+        //2.点击时获取到对应的todoList下标
+        const index = indexOfElement(parent, grandparent.children)
+        log('index', index)
+        //删除todoList对应下标的这一项
+        todoList[index].task = target.innerHTML
+        //3.保存todoList
+        saveTodos()
+    },true)
 }
 
 //添加completed tasks页面内容
@@ -128,7 +129,7 @@ const __main = function() {
     initTodoList()
     bindEventAddTask()
     bindEventDeleteTask()
-    //bindEventEditTask()
+    bindEventEditTask()
 }
 
 __main()
