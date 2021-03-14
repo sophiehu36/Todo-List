@@ -26,14 +26,6 @@ const toggleClass = function(element, className) {
     }
 }
 
-const clearAll = function(selector, className) {
-    let elements = es(selector)
-    for(let i = 0; i < elements.length; i++) {
-        if(elements[i].classList.contains(className)){
-            elements[i].classList.remove(className)
-        }
-    }
-}
 const removeClassAll = function(className) {
     var selector = '.' + className
     var elements = document.querySelectorAll(selector)
