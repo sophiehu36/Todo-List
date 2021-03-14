@@ -14,8 +14,8 @@
                 <div id="current-time"></div>
                 <span id="task-active"></span>
                 <ul id="todo-page">
-                    <li class="todo-complete page-chosen">Incomplete Tasks</li>
-                    <li class="todo-complete">Completed Tasks</li>
+                    <li id="incomplete" class="todo-page page-chosen">Incomplete Tasks</li>
+                    <li id="completed" class="todo-page">Completed Tasks</li>
                 </ul>
             </div>
         </div>
@@ -25,15 +25,22 @@
                 Add Task
             </div>
         </div>
-        <div id="todo-content">
-            <!--<div class="todo-item">
-                <i class="fa fa-check-square-o"></i>
-                <p class="todo-task" contenteditable="true">Client meeting @ 2:30pm</p>
-                <i class="fa fa-trash-o"></i>
-            </div>-->
+        <div id="todo-incomplete" class="todo-content page-active">
+            <!--
+                <div class="todo-item">
+                    <i class="fa fa-check-square-o"></i>
+                    <p class="todo-task" contenteditable="true">Client meeting @ 2:30pm</p>
+                    <i class="fa fa-trash-o"></i>
+                </div>
+            -->
         </div>
-
-
+        <div id="todo-completed" class="todo-content">
+        <!--
+            <div class="todo-itemCompleted">
+                <p class="todo-task" contenteditable="false">${todo.task}</p>
+            </div>
+        -->
+        </div>
     </div>
     <script src='hu.js'></script>
     <script src="todo-list.js"></script>
