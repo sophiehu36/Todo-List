@@ -73,20 +73,21 @@ ul#todo-page {
     width: 200px;
     cursor: text;
 }
-#todo-content {
+.todo-content {
     margin-top: 25px;
+    display: none;
 }
 /*div.todo-item:last-child {
     border-top: 0px;
 }*/
-.todo-item {
+.todo-item, .todo-itemCompleted {
     padding: 5px 0px;
     border: 1px solid #8d9196;
     border-left: 0;
     border-right: 0;
 
 }
-.todo-item > p {
+.todo-item > p, .todo-itemCompleted > p {
     display: inline-block;
     font-size: 13px;
     color: white;
@@ -94,4 +95,7 @@ ul#todo-page {
 }
 #todo-page > li.page-chosen {
     color: white;
+}
+div.page-active {
+    display: block;
 }
