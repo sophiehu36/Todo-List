@@ -47,7 +47,7 @@ const todoTemplate = function(todo) {
         <div class="todo-item">
             <i class="fa fa-check-square-o"></i>
             <p class="todo-task" contenteditable="true">${todo.task}</p>
-            <i class="fa fa-trash-o"></i>
+            <i class="fa fa-trash-o" title="delete"></i>
         </div>
         `
     return t
@@ -165,8 +165,9 @@ const bindEventChangePage = function() {
 const todoCompletedTemplate = function(todo) {
     const t = `
         <div class="todo-itemCompleted">
+            <i class="fa fa-copy"></i>
             <p class="todo-task" contenteditable="false">${todo.task}</p>
-            <i class="fa fa-trash-o"></i>
+            <i class="fa fa-trash-o" title="delete"></i>
         </div>
         `
     return t
