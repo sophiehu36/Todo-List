@@ -21,17 +21,20 @@ body {
     box-shadow:6px 6px 10px #393f4980;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.fa-trash-o, .fa-check-square-o {
+.fa-trash-o, .fa-check-square-o, .fa-copy {
     color: #8d9196;
     cursor: pointer;
 }
 .fa-trash-o:hover {
     color:#e8306f;
-    cursor: pointer;
 }
 .fa-check-square-o:hover {
     color: greenyellow;
 }
+.fa-copy:hover {
+    color: yellow;
+}
+
 .fa-trash-o {
     float: right;
     transform: translateY(13px);
