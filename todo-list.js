@@ -1,5 +1,5 @@
 //获取当前时间
-const currentTime = function() {
+const currentTime = () => {
     const d = new Date()
     const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     const weekdayArray = ['Sunday', 'Monday', 'Tuesday', ' Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -10,7 +10,7 @@ const currentTime = function() {
     return timeString
 }
 //显示当前时间
-const showCurrentTime = function() {
+const showCurrentTime = () => {
     const timeDiv = e('#current-time')
     const time = currentTime()
     timeDiv.innerHTML = time
@@ -23,9 +23,9 @@ let todoList = []
 let todoCompletedList = []
 
 //点击Add Task获取input的内容添加新的task
-const bindEventAddTask = function() {
+const bindEventAddTask = () => {
     const addButton = e('#todo-add')
-    bindEvent(addButton, 'click', function(){
+    bindEvent(addButton, 'click', () => {
         //获取input输入框内容
         const task = e('#todo-input').value
         log('input content', task)
@@ -42,7 +42,7 @@ const bindEventAddTask = function() {
     })
 }
 //todo模板
-const todoTemplate = function(todo) {
+const todoTemplate = todo => {
     const t = `
         <div class="todo-item">
             <i class="fa fa-check-square-o"></i>
@@ -54,19 +54,19 @@ const todoTemplate = function(todo) {
 }
 
 //插入incomplete todo
-const insertTodo = function(todo) {
+const insertTodo = todo => {
     const t = todoTemplate(todo)
     const todoDiv = e('#todo-incomplete')
     appendHtml(todoDiv,'beforeend', t)
 }
 
 //保存todoList
-const saveTodos = function() {
+const saveTodos = () => {
     const s = JSON.stringify(todoList)
     localStorage.todoList = s
 }
 //读取todoList,排除没有todo记录的情况
-const loadTodos = function() {
+const loadTodos = () => {
     const s = localStorage.todoList
     if(s !== undefined) {
         return JSON.parse(s)
@@ -76,14 +76,14 @@ const loadTodos = function() {
 }
 
 //程序加载后把todoList添加到页面中
-const initTodoList = function() {
+const initTodoList = () => {
     todoList = loadTodos()
     todoCompletedList = loadCompletedTodos()
     initList(todoList, insertTodo)
     initList(todoCompletedList, insertCompletedTodo)
 }
 //遍历localstorage的list对应插入incomplete或completed
-const initList = function(list, func) {
+const initList = (list, func) => {
     for (let i = 0; i < list.length; i++) {
         const todo = list[i]
         func(todo)
@@ -91,7 +91,7 @@ const initList = function(list, func) {
 }
 
 //点击垃圾桶图标将task删除
-const bindEventDeleteTask = function() {
+const bindEventDeleteTask = () => {
     const todoDiv = e('#todo-incomplete')
     //删除未完成todoList中的task
     deleteTask(todoDiv, todoList, saveTodos)
@@ -100,9 +100,9 @@ const bindEventDeleteTask = function() {
     deleteTask(todoCompletedDiv, todoCompletedList, saveCompletedTodos)
 }
 
-const deleteTask = function(element, list, saveFunc) {
+const deleteTask = (element, list, saveFunc) => {
     //1.在父元素上绑定事件
-    bindEvent(element, 'click', function(event) {
+    bindEvent(element, 'click', event => {
         const target = event.target
         if (target.classList.contains('fa-trash-o')) {
             const parent = target.parentElement
@@ -120,11 +120,11 @@ const deleteTask = function(element, list, saveFunc) {
 }
 
 //点击task内容可以修改并保存，未完成
-const bindEventEditTask = function () {
+const bindEventEditTask = () => {
     log('bindEventBlur function')
     //直接把事件绑定在编辑的对象上
     const todos = es('.todo-task')
-    bindAll(todos, 'blur', function(event) {
+    bindAll(todos, 'blur', event => {
         //失去焦点的时候获取内容
         const target = event.target
         //log('container blur', event, target)
@@ -142,9 +142,9 @@ const bindEventEditTask = function () {
 
 //添加completed tasks页面内容
 //点击按钮切换显示Incomplete和completed页面
-const bindEventChangePage = function() {
+const bindEventChangePage = () => {
     const pageButtons = es('.todo-page') 
-    bindAll(pageButtons, 'click', function(event) {
+    bindAll(pageButtons, 'click', event => {
         const target = event.target
         log(target)
         if(target.id == 'incomplete') {
@@ -162,7 +162,7 @@ const bindEventChangePage = function() {
 }
 
 //complete页面模板
-const todoCompletedTemplate = function(todo) {
+const todoCompletedTemplate = todo => {
     const t = `
         <div class="todo-itemCompleted">
             <i class="fa fa-copy"></i>
@@ -174,19 +174,19 @@ const todoCompletedTemplate = function(todo) {
 }
 
 //插入completed todo
-const insertCompletedTodo = function(todoCompleted) {
+const insertCompletedTodo = todoCompleted => {
     const t = todoCompletedTemplate(todoCompleted)
     const todoDiv = e('#todo-completed')
     appendHtml(todoDiv,'beforeend', t)
 }
 
 //保存completed todoList
-const saveCompletedTodos = function() {
+const saveCompletedTodos = () => {
     const s = JSON.stringify(todoList)
     localStorage.todoCompletedList = s
 }
 //读取completed todoList,排除没有todo记录的情况
-const loadCompletedTodos = function() {
+const loadCompletedTodos = () => {
     const s = localStorage.todoCompletedList
     if(s !== undefined) {
         return JSON.parse(s)
@@ -196,10 +196,10 @@ const loadCompletedTodos = function() {
 }
 
 //点击完成图标将task移动到completed tasks, 保存到localstorage
-const bindEventCompleteTask = function() {
+const bindEventCompleteTask = () => {
     const todoDiv = e('.todo-content')
     //1.在父元素上绑定事件
-    bindEvent(todoDiv, 'click', function(event) {
+    bindEvent(todoDiv, 'click', event => {
         const target = event.target
         if (target.classList.contains('fa-check-square-o')) {
             const parent = target.parentElement
@@ -227,7 +227,7 @@ const bindEventCompleteTask = function() {
 } 
 
 
-const __main = function() {
+const __main = () => {
     showCurrentTime()
     initTodoList()
     bindEventAddTask()
