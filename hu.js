@@ -1,24 +1,24 @@
-const log = function() {
+const log = () => {
     console.log.apply(console, arguments)
 }
 
-const e = function(selector) {
+const e = selector => {
     return document.querySelector(selector)
 }
 
-const es = function(selector) {
+const es = selector => {
     return document.querySelectorAll(selector)
 }
 
-const appendHtml = function(element, position, html) {
+const appendHtml = (element, position, html) => {
 	element.insertAdjacentHTML(position, html)
 }
 
-const bindEvent = function(element, eventName, callback) {
+const bindEvent = (element, eventName, callback) => {
     element.addEventListener(eventName, callback)
 }
 
-const toggleClass = function(element, className) {
+const toggleClass = (element, className) => {
     if (element.classList.contains(className)) {
         element.classList.remove(className)
     } else {
@@ -26,7 +26,7 @@ const toggleClass = function(element, className) {
     }
 }
 
-const removeClassAll = function(className) {
+const removeClassAll = className => {
     var selector = '.' + className
     var elements = document.querySelectorAll(selector)
     for (var i = 0; i < elements.length; i++) {
@@ -35,7 +35,7 @@ const removeClassAll = function(className) {
     }
 }
 
-const bindAll = function(elements, eventName, callback) {
+const bindAll = (elements, eventName, callback) => {
     for(var i = 0; i < elements.length; i++) {
         var e = elements[i]
         bindEvent(e, eventName, callback)
@@ -43,11 +43,11 @@ const bindAll = function(elements, eventName, callback) {
 }
 
 // find 函数可以查找 element 的所有子元素
-const find = function(element, selector) {
+const find = (element, selector) => {
     return element.querySelector(selector)
 }
 
-const indexOfElement = function(target, elements) {
+const indexOfElement = (target, elements) => {
     for(let i = 0; i < elements.length; i++) {
         if(target == elements[i]) {
             return i
@@ -55,7 +55,7 @@ const indexOfElement = function(target, elements) {
     }
 }
 
-const addClass = function(index, selector, className) {
+const addClass = (index, selector, className) => {
     var elements = es(selector)
     var e = elements[index]
     removeClassAll(className)
