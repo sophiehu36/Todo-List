@@ -61,12 +61,12 @@ const insertTodo = todo => {
 }
 
 //保存todoList
-const saveTodos = () => {
+const saveTodos = function() {
     const s = JSON.stringify(todoList)
     localStorage.todoList = s
 }
 //读取todoList,排除没有todo记录的情况
-const loadTodos = () => {
+const loadTodos = function() {
     const s = localStorage.todoList
     if(s !== undefined) {
         return JSON.parse(s)
@@ -181,12 +181,12 @@ const insertCompletedTodo = todoCompleted => {
 }
 
 //保存completed todoList
-const saveCompletedTodos = () => {
+const saveCompletedTodos = function() {
     const s = JSON.stringify(todoList)
     localStorage.todoCompletedList = s
 }
 //读取completed todoList,排除没有todo记录的情况
-const loadCompletedTodos = () => {
+const loadCompletedTodos = function() {
     const s = localStorage.todoCompletedList
     if(s !== undefined) {
         return JSON.parse(s)
