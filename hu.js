@@ -1,4 +1,4 @@
-const log = () => {
+const log = function() {
     console.log.apply(console, arguments)
 }
 
