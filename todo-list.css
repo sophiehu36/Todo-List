@@ -39,19 +39,19 @@ body {
     float: right;
 }
 #current-time {
-    font-size: 15px;
+    font-size: 13px;
     color:white;
     display: inline-block;
 }
 ul#todo-page {
     float: right;
-    margin-top: 0;
+    margin-top: -20px;
 }
 #todo-page > li {
     list-style-type: none;
     display: inline-block;
     margin-left: 20px;
-    font-size: 13px;
+    font-size: 15px;
     color:#8d9196;
     cursor: pointer;
 }
@@ -108,4 +108,8 @@ div.page-active {
 }
 .todo-task {
     flex-grow: 1;
+}
+#task-active {
+    font-size: 11px;
+    color: skyblue;
 }
