@@ -39,6 +39,7 @@ const bindEventAddTask = () => {
         saveTodos()
         //插入todo
         insertTodo(todo)
+        showActiveTasksNumber()
     })
 }
 //todo模板
@@ -115,6 +116,8 @@ const deleteTask = (element, list, saveFunc) => {
             parent.remove()
             //3.保存todoList
             saveFunc()
+            //删除todo的时候更新当前任务数量并显示
+            showActiveTasksNumber()
         }
     })
 }
@@ -178,6 +181,7 @@ const insertCompletedTodo = todoCompleted => {
     const t = todoCompletedTemplate(todoCompleted)
     const todoDiv = e('#todo-completed')
     appendHtml(todoDiv,'beforeend', t)
+    showActiveTasksNumber()
 }
 
 //保存completed todoList
@@ -226,6 +230,16 @@ const bindEventCompleteTask = () => {
     })
 } 
 
+//显示当前未完成任务数量
+const showActiveTasksNumber = () => {
+    //选中所有的任务，这是一个数组
+    const items = es('.todo-item')
+    //任务数量就是数组的长度
+    const number = items.length
+    //把对应的span内容改为当前数量
+    const taskSpan = e('#task-active')
+    taskSpan.innerHTML = `${number} Active Tasks`
+}
 
 const __main = () => {
     showCurrentTime()
